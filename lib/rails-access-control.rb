@@ -4,7 +4,7 @@ module RailsAccessControl
   def allowed_hosts_only!
     return unless allowed_hosts.present?
 
-    Rails.logger.debug(
+    Rails.logger.info(
       msg: 'RailsAccessControl IP Enforcement Check',
       requesting_ip: request.remote_ip,
       allowed_request: allowed_request?
@@ -16,7 +16,7 @@ module RailsAccessControl
   def reject_blocked_hosts!
     return unless blocked_hosts.present?
 
-    Rails.logger.debug(
+    Rails.logger.info(
       msg: 'RailsAccessControl IP Enforcement Check',
       requesting_ip: request.remote_ip,
       blocked_request: blocked_request?
