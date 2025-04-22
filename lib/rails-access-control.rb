@@ -26,11 +26,11 @@ module RailsAccessControl
   end
 
   def blocked_hosts
-    ENV['BLOCKED_HOSTS']
+    ENV.fetch('BLOCKED_HOSTS', '').split(',')
   end
 
   def allowed_hosts
-    ENV['ALLOWED_HOSTS']
+    ENV.fetch('ALLOWED_HOSTS', '').split(',')
   end
 
   def allowed_request?
